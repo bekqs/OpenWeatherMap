@@ -1,0 +1,184 @@
+@import "_variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* clears the 'X' icon from input fields */
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+body {
+    background: $bg;
+    color: $color;
+    height: 100%;
+    font-size: 14px;
+    letter-spacing: .025em;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+#wrap {
+    width: 100%;
+    height: 100%;
+    #weather {
+        padding: 4em;
+    }
+    #form {
+        width: 94%;
+        position: relative;
+        margin: 2em 0 2em;
+        #search {
+            width: 100%;
+            height: 60px;
+            font-size: 1em;
+            font-weight: 300;
+            padding-left: 1em;
+            text-indent: 2em;
+            font-size: 1.4em;
+            outline: none;
+            border-radius: 3px;
+            border: 1px solid #fff;
+            background-color: $search-bg;
+            box-shadow: inset 0 0 1px rgba($color: #000, $alpha: .05);
+            background-image: url(../icons/search-icon.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-origin: content-box;
+            transition: .4s;
+            &:focus {
+                box-shadow: inset 0 0 30px rgba($color: #000, $alpha: .05);
+            }
+        }
+    }
+    #units {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        right: 0;
+        top: 6em;
+        background: $bg;
+        border-right: 3px solid $accent;
+        label {
+            float: right;
+            position: relative;
+            font-weight: 700;
+            font-size: 1.4em;
+            line-height: 60px;
+            text-align: center;
+            width: inherit;
+            height: inherit;
+            color: $accent;
+            background-color: inherit;
+            overflow: hidden;
+            cursor: pointer;
+            &:before {
+                content: "\00b0 C";
+                position: absolute;
+                left: 0;
+                width: inherit;
+                height: inherit;
+                background-color: inherit;
+                transition: .4s;
+            }
+            &:after {
+                content: "\00b0 F";
+                position: absolute;
+                right: -100%;
+                width: inherit;
+                height: inherit;
+                background-color: inherit;
+                transition: .4s;
+            }
+        }
+        #unit {
+            visibility: hidden;
+            position: absolute;
+            &:checked {
+                ~ label:after {
+                    right: 0;
+                }
+                ~ label:before {
+                    left: -100%;
+                }
+            }
+        }
+    }
+    #info {
+        margin-top: 2em;
+        width: 40%;
+        display: inline-block;
+        vertical-align: top;
+        #main {
+            #icon {
+                display: inline-block;
+                position: relative;
+                height: 150px;
+                width: auto;
+                top: 1.2em;
+            }
+            #temperature {
+                display: inline-block;
+                position: relative;
+                left: .2em;
+                font-weight: 300;
+                font-size: 6em;
+            }
+        }
+        #sun, #details {
+            margin-top: 2em;
+        }
+    }
+    #forecast {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+        #hourly {
+            position: relative;
+            height: 150px;
+            width: 100%;
+            canvas {
+                position: relative;
+            }
+        }
+        #daily {
+            margin-top: 6em;
+            width: 100%;
+            .group {
+                display: inline-block;
+                width: 20%;
+                text-align: center;
+                img {
+                    height: 64px;
+                    width: auto;
+                }
+            }
+        }
+    }
+    
+}
+
+// Google
+.pac-container {
+    box-shadow: none;
+    border-bottom: 2px solid $accent;
+    border-radius: 2px;
+    .pac-item {
+        padding: 1em;
+        border-top: 1px solid rgba($color: #000, $alpha: .05);
+    }
+    &:after {
+        padding: 0 1em 3em;
+        margin-right: 1em;
+        height: auto;
+    }
+}

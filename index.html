@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Weather forecast</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div id="weather">
+            <form id="form">
+                <input type="search" name="search" id="search">
+            </form>
+
+            <form id="units">
+                <input type="checkbox" name="unit" id="unit">
+                <label for="unit">&deg;C</label>
+            </form>
+
+            <div id="head">
+                <h1 id="city"></h1>
+                <p id="time"></p>
+                <p id="condition"></p>
+            </div>
+
+            <div id="info">
+                <div id="main">
+                    <img src="" alt="" id="icon">
+                    <p id="temperature"></p>
+                </div>
+
+                <div id="sun">
+                    <p id="sunrise"></p>
+                    <p id="sunset"></p>
+                </div>
+
+                <div id="details">
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                </div>
+            </div>
+
+            <div id="forecast">
+                <div id="hourly">
+                    <canvas id="chart" width="600" height="150"></canvas>
+                </div>
+
+                <div id="daily">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvb70mxfZjBoP_joLTFt_vWR-cDS1vuT4&libraries=places"></script>
+    <script src="main.js"></script>
+</body>
+</html>
